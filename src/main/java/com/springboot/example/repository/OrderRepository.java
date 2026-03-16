@@ -18,5 +18,8 @@ public interface OrderRepository extends JpaRepository<Orders, Long> {
 
     // Delete orders by status
     void deleteByStatus(String status);
+
+    @Query("SELECT o FROM Orders o WHERE o.user.id = :userId")
+    List<Orders> findByUserId(@Param("userId") Long userId);
 }
 

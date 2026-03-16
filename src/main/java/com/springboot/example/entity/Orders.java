@@ -41,13 +41,17 @@ public class Orders {
     @Transient
     private String allOrderInfo; // This field will not be persisted in the database
 
+    @Column(name = "product_name")
+    private String productName;
+
     // Constructors
     public Orders() {}
 
-    public Orders(Users user, BigDecimal orderAmount, OrderStatus status) {
+    public Orders(Users user, BigDecimal orderAmount, OrderStatus status, String productName) {
         this.user = user;
         this.orderAmount = orderAmount;
         this.status = status;
+        this.productName = productName;
     }
 
     // Getters & Setters
@@ -83,6 +87,14 @@ public class Orders {
         return createdAt;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
     public String getAllOrderInfo() {
         return "Orders{" +
                 "id=" + id +
@@ -91,6 +103,7 @@ public class Orders {
                 ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
                 ", allOrderInfo='" + allOrderInfo + '\'' +
+                ", productName='" + productName + '\'' +
                 '}';
     }
 
@@ -103,6 +116,7 @@ public class Orders {
                 ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
                 ", allOrderInfo='" + allOrderInfo + '\'' +
+                ", productName='" + productName + '\'' +
                 '}';
     }
 }

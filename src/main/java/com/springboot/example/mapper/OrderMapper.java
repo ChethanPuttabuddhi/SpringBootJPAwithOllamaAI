@@ -22,6 +22,7 @@ public class OrderMapper {
         orders.setUser(userRepository.findById(order.getUserId()).orElseThrow());
         orders.setOrderAmount(order.getOrderAmount());
         orders.setStatus(OrderStatus.valueOf(order.getStatus()));
+        orders.setProductName(order.getProductName());
         return orders;
     }
 

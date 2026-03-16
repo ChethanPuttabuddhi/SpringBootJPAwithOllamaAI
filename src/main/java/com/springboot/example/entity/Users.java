@@ -10,6 +10,9 @@ import java.util.List;
 @Table(name = "users", schema = "user_management")
 public class Users {
 
+    public Users() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

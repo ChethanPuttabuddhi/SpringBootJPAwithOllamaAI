@@ -18,10 +18,14 @@ public class Order {
     @NonNull
     private String Status;
 
-    public Order(@NonNull Long userId, BigDecimal orderAmount, @NonNull String status) {
+    @NonNull
+    private String productName;
+
+    public Order(@NonNull Long userId, BigDecimal orderAmount, @NonNull String status, @NonNull String productName) {
         this.userId = userId;
         OrderAmount = orderAmount;
         Status = status;
+        this.productName = productName;
     }
 
     @NonNull
@@ -50,12 +54,22 @@ public class Order {
         Status = status;
     }
 
+    @NonNull
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(@NonNull String productName) {
+        this.productName = productName;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
                 "userId=" + userId +
                 ", OrderAmount=" + OrderAmount +
                 ", Status='" + Status + '\'' +
+                ", productName='" + productName + '\'' +
                 '}';
     }
 }
