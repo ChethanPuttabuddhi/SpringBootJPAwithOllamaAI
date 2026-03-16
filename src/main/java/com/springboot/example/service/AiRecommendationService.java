@@ -20,12 +20,6 @@ public class AiRecommendationService {
     @Autowired
     OrderRepository orderRepository;
 
-    @Value("${spring.ai.openai.api-key:}")
-    private String apiKey;
-
-    @Value("${spring.ai.openai.chat.options.model:gpt-4}")
-    private String model;
-
     private final RestTemplate restTemplate = new RestTemplate();
     private final ObjectMapper mapper = new ObjectMapper();
 
